@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #F4F4F2;
+    --surface: #FFFFFF;
+    --text: #111111;
+    --muted: #555555;
+    --border: #E5E5E5;
+    --accent: #F97316;
+    --accent-hover: #EA6D0E;
+
+    --background: 40 11% 95%;
+    --foreground: 0 0% 7%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+    --primary: 16 87% 47%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 11% 95%;
+    --secondary-foreground: 0 0% 7%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 33%;
+    --accent: 16 87% 47%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 16 87% 47%;
+    --radius: 0rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+  }
+  ::selection {
+    background-color: #F97316;
+    color: #ffffff;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #222222;
+    border-radius: 4px;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.9s cubic-bezier(0.25, 0.1, 0.25, 1),
+              transform 0.9s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-img {
+  overflow: hidden;
+}
+.reveal-img img {
+  transform: scale(0.97);
+  clip-path: inset(8% 0% 8% 0%);
+  transition: transform 1.2s cubic-bezier(0.25, 0.1, 0.25, 1),
+              clip-path 1.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.reveal-img.visible img {
+  transform: scale(1);
+  clip-path: inset(0% 0% 0% 0%);
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+@keyframes word-rotate {
+  0%, 25% { transform: translateY(0) rotateX(0deg); opacity: 1; }
+  30%, 100% { transform: translateY(-20px) rotateX(-30deg); opacity: 0; }
+}
+
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
