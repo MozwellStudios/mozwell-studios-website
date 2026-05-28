@@ -43,7 +43,7 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* Desktop nav — hidden on mobile via inline media query */}
+        {/* Desktop nav — hidden on mobile via CSS class */}
         <div className="navbar-desktop-links" style={{ display: "flex", alignItems: "center", gap: "2.5rem" }}>
           {links.map((link) => {
             const active = location.pathname === link.to || location.pathname.startsWith(link.to + "/");
@@ -65,7 +65,7 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* Hamburger — hidden on desktop */}
+        {/* Hamburger — display controlled entirely by CSS class, not inline style */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="navbar-hamburger"
@@ -78,23 +78,29 @@ export default function Navbar() {
             transition: "all 0.35s cubic-bezier(0.25,0.1,0.25,1)",
             padding: "0.5rem",
             flexShrink: 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            minWidth: "40px",
-            minHeight: "40px",
           }}
         >
           {menuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
+      {/* Always-rendered styles — includes keyframes so animation works on first render */}
       <style>{`
         .navbar-desktop-links { display: flex; }
         .navbar-hamburger { display: none; }
         @media (max-width: 768px) {
           .navbar-desktop-links { display: none !important; }
-          .navbar-hamburger { display: flex !important; align-items: center; justify-content: center; position: relative; z-index: 51; }
+          .navbar-hamburger {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 52;
+          }
+        }
+        @keyframes menuItemIn {
+          from { opacity: 0; transform: translateY(16px); }
+          to   { opacity: 1; transform: translateY(0); }
         }
       `}</style>
 
@@ -102,7 +108,7 @@ export default function Navbar() {
         <div style={{
           position: "fixed", top: 0, left: 0, right: 0, bottom: 0,
           backgroundColor: "rgba(5,5,5,0.99)",
-          zIndex: 49,
+          zIndex: 51,
           display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-start",
           padding: "0 clamp(2rem,8vw,4rem)",
         }}>
@@ -128,12 +134,6 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <style>{`
-            @keyframes menuItemIn {
-              from { opacity: 0; transform: translateY(16px); }
-              to   { opacity: 1; transform: translateY(0); }
-            }
-          `}</style>
         </div>
       )}
     </nav>
