@@ -69,9 +69,23 @@ export default function Navbar() {
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="navbar-hamburger"
-          style={{ background: "none", border: "none", cursor: "pointer", color: textColor, transition: "color 0.35s", padding: "0.25rem", flexShrink: 0 }}
+          style={{
+            background: scrolled ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.45)",
+            border: "1px solid rgba(255,255,255,0.18)",
+            borderRadius: "8px",
+            cursor: "pointer",
+            color: "#fff",
+            transition: "all 0.35s cubic-bezier(0.25,0.1,0.25,1)",
+            padding: "0.5rem",
+            flexShrink: 0,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            minWidth: "40px",
+            minHeight: "40px",
+          }}
         >
-          {menuOpen ? <X size={20} /> : <Menu size={20} />}
+          {menuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
@@ -80,7 +94,7 @@ export default function Navbar() {
         .navbar-hamburger { display: none; }
         @media (max-width: 768px) {
           .navbar-desktop-links { display: none !important; }
-          .navbar-hamburger { display: flex !important; align-items: center; justify-content: center; }
+          .navbar-hamburger { display: flex !important; align-items: center; justify-content: center; position: relative; z-index: 51; }
         }
       `}</style>
 

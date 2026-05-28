@@ -426,7 +426,7 @@ export default function FoundrSpace() {
             <h3 style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 900, letterSpacing: "-0.04em", color: "#111", textTransform: "uppercase", margin: 0 }}>Mozwell Claremont</h3>
           </div>
           <Link
-            to="/work/mozwell-claremont"
+            to="/work/mozwell-claremont-v2"
             style={{ fontSize: "0.65rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#111", textDecoration: "none", borderBottom: "1px solid #111", paddingBottom: "2px", transition: "color 0.25s, border-color 0.25s" }}
             onMouseEnter={e => { e.currentTarget.style.color = "#F97316"; e.currentTarget.style.borderColor = "#F97316"; }}
             onMouseLeave={e => { e.currentTarget.style.color = "#111"; e.currentTarget.style.borderColor = "#111"; }}

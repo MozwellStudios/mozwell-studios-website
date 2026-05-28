@@ -282,7 +282,7 @@ export default function FrankMacias() {
       <section style={{ backgroundColor: "#000", padding: "8rem 3rem", borderTop: "1px solid #111" }}>
         <div style={{ maxWidth: "100rem", margin: "0 auto" }}>
           <p style={{ fontSize: "0.58rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", margin: "0 0 1.5rem" }}>Next Project</p>
-          <Link to="/work/mozwell-claremont" style={{ textDecoration: "none" }}>
+          <Link to="/work/mozwell-claremont-v2" style={{ textDecoration: "none" }}>
             <h2 style={{ fontSize: "clamp(2.5rem, 6vw, 7rem)", fontWeight: 900, color: "#fff", textTransform: "uppercase", letterSpacing: "-0.045em", lineHeight: 0.9, margin: 0, transition: "color 0.25s" }}
               onMouseEnter={e => e.currentTarget.style.color = "#F97316"}
               onMouseLeave={e => e.currentTarget.style.color = "#fff"}

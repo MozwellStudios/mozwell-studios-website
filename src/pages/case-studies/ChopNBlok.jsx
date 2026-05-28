@@ -509,48 +509,20 @@ export default function ChopNBlok() {
         </div>
       </section>
 
-      {/* ── EDITORIAL PHOTO GRID ─────────────────────── */}
-      <section style={{ backgroundColor: "#fff", padding: "8rem 4rem" }} className="cnb-editorial">
-        <div style={{ maxWidth: "1600px", margin: "0 auto", display: "flex", gap: "6rem", alignItems: "flex-start" }} className="cnb-editorial-inner">
-          <div style={{ flex: "0 0 32%", position: "sticky", top: "6rem" }} className="cnb-editorial-left">
-            <h2 style={{ fontSize: "clamp(3rem, 5vw, 5rem)", fontWeight: 900, letterSpacing: "-0.045em", lineHeight: 0.95, color: "#111", textTransform: "uppercase", margin: 0 }}>Chop<br />N' Blok</h2>
-            <p style={{ fontSize: "0.65rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#999", margin: "1.75rem 0 0" }}>2024 ✶ Ongoing</p>
-            <div style={{ marginTop: "2.5rem", maxWidth: "28rem" }}>
-              <p style={{ fontSize: "0.9375rem", color: "#222", lineHeight: 1.75, fontWeight: 600, margin: "0 0 1.25rem" }}>
-                Chop N' Blok is a Nigerian-American restaurant in Houston, known for its bold flavors, vibrant interior, and culture-forward dining experience.
-              </p>
-              <p style={{ fontSize: "0.9375rem", color: "#555", lineHeight: 1.75, margin: "0 0 1.25rem" }}>
-                Mozwell Studios manages paid social and Google campaigns, building a multi-channel system designed to drive reservations and increase consistent customer traffic.
-              </p>
-              <p style={{ fontSize: "0.9375rem", color: "#555", lineHeight: 1.75, margin: 0 }}>
-                The system delivered 522 reservations in Q1 2026 at a 10.2x return on ad spend.
-              </p>
+      {/* ── PHOTO STRIP ──────────────────────────────── */}
+      <section style={{ backgroundColor: "#000", borderTop: "1px solid #111" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)" }} className="cnb-strip-grid">
+          {[
+            "https://media.base44.com/images/public/69c6f9ba5088816159f4e607/35eb107ac_DSC05509.jpg",
+            "https://media.base44.com/images/public/69c6f9ba5088816159f4e607/3409f458c_DSC06003.jpg",
+            "https://media.base44.com/images/public/69c6f9ba5088816159f4e607/d3b261b79_DSC05380.jpg",
+          ].map((src, i) => (
+            <div key={i} style={{ aspectRatio: "4/3", overflow: "hidden", borderRight: i < 2 ? "1px solid #111" : "none" }}>
+              <img src={src} alt="" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", filter: "brightness(0.85) contrast(1.05)" }} />
             </div>
-          </div>
-          <div style={{ flex: "1 1 0", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem" }} className="cnb-editorial-grid">
-            {[
-              { src: "https://media.base44.com/images/public/69c6f9ba5088816159f4e607/35eb107ac_DSC05509.jpg", span: 1, ratio: "1/1" },
-              { src: "https://media.base44.com/images/public/69c6f9ba5088816159f4e607/074b9ee19_DSC05059.jpg", span: 1, ratio: "1/1" },
-              { src: "https://media.base44.com/images/public/69c6f9ba5088816159f4e607/3409f458c_DSC06003.jpg", span: 2, ratio: "16/10" },
-              { src: "https://media.base44.com/images/public/69c6f9ba5088816159f4e607/20ed34fde_DSC05163.jpg", span: 1, ratio: "4/5" },
-              { src: "https://media.base44.com/images/public/69c6f9ba5088816159f4e607/d3b261b79_DSC05380.jpg", span: 1, ratio: "4/5" },
-            ].map((tile, i) => (
-              <div key={i} style={{ gridColumn: `span ${tile.span}`, aspectRatio: tile.ratio, overflow: "hidden", borderRadius: "1rem", backgroundColor: "#f0f0ee" }}>
-                <img src={tile.src} alt="" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", transition: "opacity 0.3s ease" }}
-                  onMouseEnter={e => e.currentTarget.style.opacity = "0.92"}
-                  onMouseLeave={e => e.currentTarget.style.opacity = "1"}
-                />
-              </div>
-            ))}
-          </div>
+          ))}
         </div>
-        <style>{`
-          @media (max-width: 900px) {
-            .cnb-editorial-inner { flex-direction: column !important; gap: 3rem !important; }
-            .cnb-editorial-left { position: static !important; flex: 1 1 100% !important; }
-          }
-          @media (max-width: 480px) { .cnb-editorial { padding: 4rem 1.5rem !important; } }
-        `}</style>
+        <style>{`@media (max-width: 768px) { .cnb-strip-grid { grid-template-columns: 1fr !important; } .cnb-strip-grid > div { border-right: none !important; border-top: 1px solid #111; } }`}</style>
       </section>
 
       <Footer />
